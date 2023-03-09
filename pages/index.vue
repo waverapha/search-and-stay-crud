@@ -34,13 +34,11 @@
 import { mapActions } from 'vuex'
 
 export default {
-  asyncData () {},
-
   data () {
     return {
       form: {
         data: {
-          email: 'task@searchandstay.co',
+          email: 'task@searchandstay.com',
           password: 'ph37i45K' // ph37i45K
         },
         error: {
@@ -80,7 +78,7 @@ export default {
 
         await new Promise(resolve => setTimeout(resolve, 850))
 
-        this.$router.push('/list')
+        this.$router.push('/house-rules')
       } catch (e) {
         this.form.error.has = true
         this.form.error.message = e.response.data?.data

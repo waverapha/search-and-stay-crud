@@ -16,7 +16,10 @@ export const actions = {
       login: body
     })
 
-    commit('SET_TOKEN', response.data.data.result.access_token)
+    const token = response.data.data.result.access_token
+
+    commit('SET_TOKEN', token)
+    this.$axios.setToken(token, 'Bearer')
 
     return response
   }
