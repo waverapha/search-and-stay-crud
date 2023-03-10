@@ -2,7 +2,7 @@ import { bootstrapVueComponents, bootstrapVuePlugins, bootstrapVueDirectives } f
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   privateRuntimeConfig: {
     axios: {
@@ -66,5 +66,9 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    babel: {
+      compact: true
+    }
+  },
 }
