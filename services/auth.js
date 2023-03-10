@@ -1,5 +1,5 @@
 export default ($axios) => {
   return {
-    login: async (body) => await $axios.post('/login_json', body)
+    login: async (body) => await $axios.post('/login_json', { login: body })
   }
 }

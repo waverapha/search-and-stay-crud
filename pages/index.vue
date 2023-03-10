@@ -33,6 +33,9 @@
 <script>
 import { mapActions } from 'vuex'
 
+const DEFAULT_SUCCESS_MESSAGE = 'Perfect! Redirecting...'
+const DEFAULT_ERROR_MESSAGE = 'Error on login'
+
 export default {
   middleware ({ store, redirect }) {
     if (store.state.auth.token) {
@@ -49,11 +52,11 @@ export default {
         },
         error: {
           has: false,
-          message: ''
+          message: DEFAULT_ERROR_MESSAGE
         },
         success: {
           has: false,
-          message: ''
+          message: DEFAULT_SUCCESS_MESSAGE
         }
       }
     }
@@ -80,23 +83,22 @@ export default {
         await this.login(this.form.data)
 
         this.form.success.has = true
-        this.form.success.message = 'Perfect! Redirecting...'
 
         await new Promise(resolve => setTimeout(resolve, 850))
 
         this.$router.push('/house-rules')
       } catch (e) {
         this.form.error.has = true
-        this.form.error.message = e.response.data?.data
+        this.form.error.message = e?.response?.data?.data ?? this.form.error.message
       }
     },
 
     resetForm () {
       this.form.success.has = false
-      this.form.success.message = ''
+      this.form.success.message = DEFAULT_SUCCESS_MESSAGE
 
       this.form.error.has = false
-      this.form.error.message = ''
+      this.form.error.message = DEFAULT_ERROR_MESSAGE
     },
   }
 }
