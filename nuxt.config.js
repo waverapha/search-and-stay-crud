@@ -1,3 +1,5 @@
+import { bootstrapVueComponents, bootstrapVuePlugins, bootstrapVueDirectives } from "./config/bootstrap-vue";
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -52,14 +54,9 @@ export default {
   ],
 
   bootstrapVue: {
-    components: ['BContainer', 'BRow', 'BCol', 'BForm', 'BFormGroup', 'BFormInvalidFeedback', 'BFormInput', 'BFormRadio', 'BButton', 'BAlert', 'BListGroup', 'BListGroupItem', 'BSkeleton', 'BPagination'],
-    componentPlugins: [
-      'LayoutPlugin',
-      'FormPlugin',
-      'FormInputPlugin',
-      'FormRadioPlugin'
-    ],
-    directivePlugins: []
+    components: bootstrapVueComponents,
+    componentPlugins: bootstrapVuePlugins,
+    directivePlugins: bootstrapVueDirectives
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
