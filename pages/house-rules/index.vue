@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid="sm">
     <h1>List of items</h1>
 
     <b-row>
@@ -16,8 +16,7 @@
           <b-list-group-item
             v-for="houseRule in houseRules"
             :key="houseRule.id"
-            :disabled="!houseRule.active"
-            :to="{ path: `/edit/${houseRule.id}` }"
+            :to="{ path: `/house-rules/${houseRule.id}` }"
           >
             {{ houseRule.name }}
           </b-list-group-item>
@@ -25,13 +24,15 @@
       </b-col>
     </b-row>
 
-    <b-pagination
-      v-model="pagination.current"
-      :total-rows="pagination.total"
-      :per-page="pagination.perPage"
-      class="mt-3"
-      @input="handlePageChange"
-    ></b-pagination>
+    <div class="d-flex justify-content-center align-items-center">
+      <b-pagination
+        v-model="pagination.current"
+        :total-rows="pagination.total"
+        :per-page="pagination.perPage"
+        class="mt-3"
+        @input="handlePageChange"
+      ></b-pagination>
+    </div>
   </b-container>
 </template>
 

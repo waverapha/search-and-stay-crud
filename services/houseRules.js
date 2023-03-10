@@ -6,8 +6,12 @@ export default ($axios) => {
       return await $axios.get(`/house_rules?${query}`)
     },
     show: async (id) => await $axios.get(`/house_rules/${id}`),
-    create: async (body) => await $axios.post('house_rules', body),
-    update: async (id, body) => await $axios.put('house_rules', body),
-    destroy: async (id) => await $axios.delete('house_rules')
+    create: async (body) => await $axios.post('house_rules', {
+      house_rules: { ...body }
+    }),
+    update: async (id, body) => await $axios.put(`/house_rules/${id}`, {
+      house_rules: { ...body }
+    }),
+    destroy: async (id) => await $axios.delete(`/house_rules/${id}`)
   }
 }
