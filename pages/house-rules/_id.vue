@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  async asyncData({ $services, params }) {
+  async asyncData({ $services, params, redirect }) {
     const pageData = {
       houseRule: null,
       isLoading: false
@@ -37,6 +37,10 @@ export default {
 
     try {
       const response = await $services.houseRules.show(params.id)
+
+      if(!response){
+        redirect('/house-rules')
+      }
 
       const { data } = response.data
 

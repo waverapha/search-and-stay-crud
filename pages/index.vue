@@ -34,6 +34,12 @@
 import { mapActions } from 'vuex'
 
 export default {
+  middleware ({ store, redirect }) {
+    if (store.state.auth.token) {
+    redirect('/house-rules')
+    }
+  },
+
   data () {
     return {
       form: {
