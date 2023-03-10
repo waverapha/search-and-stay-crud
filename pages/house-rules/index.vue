@@ -1,6 +1,6 @@
 <template>
-  <b-container fluid="sm">
-    <h1>List of items</h1>
+  <b-container fluid="md" class="mt-4">
+    <h1 class="mb-3">House Rules - Page {{ pagination.current }}</h1>
 
     <b-row>
       <b-col>

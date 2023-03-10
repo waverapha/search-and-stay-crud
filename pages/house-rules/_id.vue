@@ -1,6 +1,8 @@
 <template>
-  <b-container fluid="sm">
-    <h1>{{ houseRule.name }}</h1>
+  <b-container fluid="md" class="mt-4">
+    <b-breadcrumb :items="breadcrumbItems"></b-breadcrumb>
+
+    <h1 class="mb-3">{{ houseRule.name }}</h1>
 
     <b-form @submit.stop.prevent="handleEdit">
       <b-form-group label="Name" :disabled="isLoading">
@@ -61,6 +63,19 @@ export default {
   computed: {
     nameInputValidation () {
       return this.form.data.name.length >= 3
+    },
+
+    breadcrumbItems () {
+      return [
+        {
+          text: 'House Rules',
+          to: { path: '/house-rules' }
+        },
+        {
+          text: this.houseRule.name,
+          active: true
+        }
+      ]
     }
   },
 

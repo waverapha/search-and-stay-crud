@@ -2,6 +2,7 @@ export const bootstrapVueComponents = [
   'BContainer',
   'BRow',
   'BCol',
+  'BBreadcrumb',
   'BForm',
   'BFormGroup',
   'BFormInvalidFeedback',
